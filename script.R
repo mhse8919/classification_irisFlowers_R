@@ -121,3 +121,17 @@ CrossTable(x = test_set$species,
 
 print(round(1 - fit$results$Accuracy[1], 4))
 # WE RECEIVE A TEST ERROR RATE OF 0.0334
+
+plot(iris$Sepal.Width, iris$Sepal.Length, pch=20, xlab="width", ylab="length")
+points(iris$Petal.Width, iris$Petal.Length, pch=43, col="#FF0000")
+legend("topright", legend=c("Sepal", "Petal"), pch=c(20,43), col=c("black", "red"), bg="gray")
+
+boxstats <- boxplot(iris$Sepal.Width, horizontal=TRUE)
+text(boxstats$out, rep(1, NROW(boxstats$out)), labels=boxstats$out, pos=c(1, 1, 3, 1))
+
+hist(iris$Sepal.Width, freq=FALSE)
+lines(density(iris$Sepal.Width))
+rug(iris$Sepal.width)
+
+table(iris$Sepal.Length, iris$Species)
+pie(table(iris$Species))
